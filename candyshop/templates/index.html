@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="static/style.css">
+  <title>candy_shop</title>
+ </head>
+ <body>
+
+ <div id="top_logo">
+     <p class="logo_in_top"><img src="static/images/top_logo.png" alt="корзина кондитера"></p>
+     <div class="numb"> </div>
+     <div class="adr"> г. Макарон <br> Улица Пушкина 54<br>+88005553535</div>
+ </div>
+
+     <header>
+      <div class="logo"> </div>
+      <ul class="header-menu">
+            <li>
+                <a href="#">Каталог</a>
+            </li>
+          <li>
+                <a href="">Рецепты</a>
+            </li>
+
+          <li>
+                <a href="">Новости</a>
+            </li>
+          <li>
+                <a href="">Контакты</a>
+            </li>
+          <li>
+              <a href="">Личный кабинет</a>
+          </li>
+          <li>
+                <a href="">Корзина</a>
+              <img src="static/images/art.png" width="30px" >
+
+            </li>
+      </ul>
+    </header>
+
+         <div class="catalog">
+        <div class="dropdown">
+        <h1><a href="#">Упаковка</a></h1>
+                      <div class="dropdown-child">
+    <a href="cake/">Торты</a>
+    <a href="#">Капкейки</a>
+    <a href="#">Конфеты и шоколад</a>
+    <a href="#">Печенье, пряники </a>
+    <a href="#">Зефир и Macarons</a>
+    <a href="#">Креманки для трайфлов</a>
+    <a href="#">Пакетики для сладостей</a>
+    <a href="#">Ленты, бумажные наполнители</a>
+    <a href="#">Подложки</a>
+
+  </div>
+        </div>
+
+                <div class="dropdown">
+        <h1><a href="#">Пищевые красители</a></h1>
+                      <div class="dropdown-child">
+    <a href="#">Красители<br>Гелевые</a>
+    <a href="#">Водорастворимые</a>
+    <a href="#">Жирорастворимые</a>
+    <a href="#">Цветочная пыльца</a>
+    <a href="#">Кандурин</a>
+    <a href="#">Фломастеры<br>для рисования</a>
+
+  </div>
+        </div>
+
+        <div class="dropdown">
+        <h1><a href="#">Инструменты и формы</a></h1>
+                      <div class="dropdown-child">
+    <a href="#">Красители<br>Гелевые</a>
+    <a href="#">Водорастворимые</a>
+    <a href="#">Жирорастворимые</a>
+    <a href="#">Цветочная пыльца</a>
+    <a href="#">Кандурин</a>
+    <a href="#">Фломастеры<br>для рисования</a>
+
+  </div>
+        </div>
+
+        <div class="dropdown">
+        <h1><a href="#">Бумажные формы и капсулы</a></h1>
+                      <div class="dropdown-child">
+    <a href="#">Красители<br>Гелевые</a>
+    <a href="#">Водорастворимые</a>
+    <a href="#">Жирорастворимые</a>
+    <a href="#">Цветочная пыльца</a>
+    <a href="#">Кандурин</a>
+    <a href="#">Фломастеры<br>для рисования</a>
+
+  </div>
+        </div>
+
+        <div class="dropdown">
+        <h1><a href="#">Пищевые ингредиенты</a></h1>
+                      <div class="dropdown-child">
+    <a href="#">Красители<br>Гелевые</a>
+    <a href="#">Водорастворимые</a>
+    <a href="#">Жирорастворимые</a>
+    <a href="#">Цветочная пыльца</a>
+    <a href="#">Кандурин</a>
+    <a href="#">Фломастеры<br>для рисования</a>
+
+  </div>
+        </div>
+
+        <div class="dropdown">
+        <h1><a href="#">Посыпки и украшения</a></h1>
+                      <div class="dropdown-child">
+    <a href="#">Красители<br>Гелевые</a>
+    <a href="#">Водорастворимые</a>
+    <a href="#">Жирорастворимые</a>
+    <a href="#">Цветочная пыльца</a>
+    <a href="#">Кандурин</a>
+    <a href="#">Фломастеры<br>для рисования</a>
+
+  </div>
+        </div>
+
+    </div>
+
+<div class="mid_le">
+    <div class="left_block">
+        <div> </div>
+        <div> </div>
+        <div> </div>
+    </div>
+    <ul id="slides">
+    <li class="slide showing">1 слайд</li>
+    <li class="slide">2 слайд</li>
+    <li class="slide">3 слайд</li>
+    </ul>
+    <div class="right_block">
+        <div> </div>
+        <div> </div>
+        <div> </div>
+    </div>
+    </div>
+
+
+
+          <div id="Pre_view">
+          <div class="container_cake">
+    {% for x in base %}
+    <div class="cake_items">
+        {% if x.image %}
+        <div class="items_images">
+    <img src="{{ x.image.url }}">
+        </div>
+
+        {% endif %}
+        <div class="title">
+            {{ x.title }}
+        </div>
+        <div class="price">
+            {{ x.price }}
+        </div>
+        <div class="body">
+            {{ x.body }}
+        </div>
+        <div class="but">
+        <form action="base/de-scripts/" method="post">
+            {% csrf_token %}
+            <button type="submit" name="id" value="{{ x.id }}">Описание</button>
+        </form>
+
+        </div>
+         </div>
+        {% endfor %}
+ </div>
+
+
+     </div>
+
+
+
+
+
+  <footer>
+      <div id="foot">
+                <div class="logo_foot">
+                    <img src="static/images/top_logo.png" alt="корзина кондитера футер">
+      </div>
+          <div class="de_scr_com">
+              Информация<br>
+              --------------------------------<br>
+              --------------------------------<br>
+              --------------------------------<br>
+              --------------------------------<br>
+              --------------------------------
+          </div>
+
+          <div class="pay_car">
+              Оплата и Доставка<br>
+              --------------------------------<br>
+              --------------------------------<br>
+              --------------------------------<br>
+              --------------------------------<br>
+              --------------------------------
+          </div>
+
+          <div class="form_add">
+              <form action="">
+                  Оформить Заказ:
+                  <input type="text" value="Имя">
+                  <input type="text" value="Телефон"><br>
+
+              </form>
+          </div>
+
+      </div>
+  </footer>
+
+ <script>
+    var slides = document.querySelectorAll('#slides .slide');
+    var currentSlide = 0;
+    var slideInterval = setInterval(nextSlide,2000);
+
+    function nextSlide(){
+        slides[currentSlide].className = 'slide';
+        currentSlide = (currentSlide+1)%slides.length;
+        slides[currentSlide].className = 'slide showing';
+    }
+
+    function picked(num) {
+    let	id_product = num;
+    document.getElementById('cart').hidden = true;
+const request = new XMLHttpRequest();
+const url = "cart/add/";
+const params = id_product;
+request.open("POST", url, true);
+request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+request.addEventListener("readystatechange", () => {
+    if(request.readyState === 4 && request.status === 200) {
+		console.log(request.responseText);
+    }
+});
+request.send(params);
+}
+ </script>
+ </body>
+</html>
